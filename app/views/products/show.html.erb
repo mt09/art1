@@ -16,7 +16,8 @@
 			價格 <%= @product.price %> 元
 		</div>
 		<div class="pull-right">
-			<%= link_to "Add to Cart", "#", class: "btn btn-danger btn-lg" %>
+			<%= link_to "Add to Cart", add_to_cart_product_path(@product), method: :post, class: "btn btn-danger btn-lg" %>
+			<%= link_to "回上頁選購商品", products_path, class: "btn btn-danger btn-lg" %>
 		</div>
 	</div>
 </div>
