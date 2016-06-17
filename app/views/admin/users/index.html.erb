@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>User List</h2>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>User Email</th>
+					<th>權限</th>
+					<th>轉換</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+					<tr>
+						<td><%= user.id %></td>
+						<td><%= user.email %></td>
+						<td>
+							<% if user.admin? %>
+								Admin
+							<% else %>
+								Normal User
+							<% end %>
+						</td>
+						<td>
+							<% if user.admin? %>
+								<%= link_to "Normal User", to_normal_admin_user_path(user), method: :post, class: "btn btn-info btn-sm" %>
+							<% else %>
+								<%= link_to "Admin", to_admin_admin_user_path(user), method: :post, class: "btn btn-success btn-sm" %>
+							<% end %>							
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
