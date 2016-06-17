@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   add_flash_types :info, :warning
+
+  def admin_required
+  	if !current_user.admin?
+  		redirect_to root_path
+  	end
+  end
 end

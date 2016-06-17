@@ -26,6 +26,9 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
+								<% if current_user.admin? %>							
+									<%= link_to "Admin Only", admin_products_path %>
+								<% end %>
 								<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 							</li>
 						</ul>
