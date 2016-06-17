@@ -52,7 +52,7 @@
 
 		<div class="pull-right">
 			<% if current_cart.total_price > 0 %>
-				<%= link_to "Checkout", "#", class: "btn btn-danger btn-lg" %>
+				<%= link_to "Checkout", checkout_carts_path, method: :post, class: "btn btn-danger btn-lg" %>
 			<% else %>
 				<%= link_to "回到上頁參觀商品", root_path, class: "btn btn-danger btn-lg" %>
 			<% end %>

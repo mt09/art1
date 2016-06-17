@@ -1,0 +1,52 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>商品清單</h2>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>商品明細</th>
+					<th>單價</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% current_cart.items.each do |product| %>
+					<tr>
+						<td><%= link_to product.title, product_path(product) %></td>
+						<td><%= product.price %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+
+		<div class="total clearfix">
+			<span class="pull-right">總計 <%= render_cart_total_price(current_cart) %> 元</span>
+		</div>
+
+		<hr>
+
+		<h2>訂單資訊</h2>
+		<div>
+			<%= simple_form_for @order do |f| %>
+				<%= f.simple_fields_for :info do |c| %>
+					<legend>購買人</legend>
+					<div class="col-md-6">
+						<%= c.input :billing_name  %>
+					</div>
+					<div class="col-md-6">
+						<%= c.input :billing_address  %>
+					</div>
+					<legend>收件人</legend>
+					<div class="col-md-6">
+						<%= c.input :shipping_name  %>
+					</div>
+					<div class="col-md-6">
+						<%= c.input :shipping_address  %>
+					</div>
+					<div class="pull-right">
+						<%= f.submit "Ship to this address", data: {disable_with: "Submitting..."}, class: "btn btn-danger btn-lg" %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
