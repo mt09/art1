@@ -1,6 +1,15 @@
 <div class="row">
 	<div class="col-md-12">
 		<h2>購物車</h2>
+
+		<% if current_cart.cart_items.count > 1%>
+			<div class="pull-right" style="text-decoration=underline; padding-bottom:10px;">
+				<%= link_to "清空購物車", clean_carts_path, method: :delete, data: {confirm: "Sure?"} %>
+			</div>
+		<% else %>
+			<p class="pull-right" style="padding-bottom:10px; font-size:20px;">購物車尚無商品</p>
+		<% end %>
+
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -36,7 +45,11 @@
 		<br>
 
 		<div class="pull-right">
-			<%= link_to "Checkout", "#", class: "btn btn-danger btn-lg" %>
+			<% if current_cart.total_price > 1 %>
+				<%= link_to "Checkout", "#", class: "btn btn-danger btn-lg" %>
+			<% else %>
+				<%= link_to "回到上頁參觀商品", root_path, class: "btn btn-danger btn-lg" %>
+			<% end %>
 		</div>
 	</div>
 </div>
