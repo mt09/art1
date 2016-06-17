@@ -12,6 +12,11 @@
 			</ul>
 
 			<ul class="nav navbar-nav pull-right">
+				<li>
+					<%= link_to "#" do %>
+							購物車 (0) <i class="fa fa-shopping-cart"></i>
+					<% end %>
+				</li>
 				<% if !current_user %>
 					<li>
 						<%= link_to "Sign Up", new_user_registration_path %>
