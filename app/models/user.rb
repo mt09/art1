@@ -15,4 +15,6 @@ class User < ActiveRecord::Base
   def to_admin
   	self.update_columns(is_admin: true)
   end
+
+  has_many :orders
 end
