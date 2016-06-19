@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         post :to_admin
       end
     end
+    resources :orders
   end
 
   resources :products do
