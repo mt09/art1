@@ -43,5 +43,18 @@
 				</tr>
 			</tbody>
 		</table>
+
+		<br>
+
+		<% if !@order.is_paid? %>
+			<div class="pull-right">
+				<%= link_to "信用卡付款", pay_with_credit_card_order_path(@order.token), class: "btn btn-danger btn-lg" %>
+				<%= link_to "ATM付款", "#", class: "btn btn-danger btn-lg" %>
+			</div>
+		<% else %>
+			<p class="text-center" style="text-decoration:underline; font-size:30px;">
+				此訂單已完成付款
+			</p>
+		<% end %>
 	</div>
 </div>
