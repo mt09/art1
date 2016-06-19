@@ -8,7 +8,14 @@ Rails.application.routes.draw do
         post :to_admin
       end
     end
-    resources :orders
+    resources :orders do
+      member do
+        post :ship
+        post :shipped
+        post :return
+        post :cancel
+      end
+    end
   end
 
   resources :products do
