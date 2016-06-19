@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 			@order.build_item_cache_from_cart(current_cart)
 			@order.calculate_total!(current_cart)
 			current_cart.clean!
-			redirect_to order_path(@order.token)
+			redirect_to account_orders_path
 		else
 			reder "carts/checkout"
 		end
