@@ -1,0 +1,11 @@
+#development
+pay2go_merchant_id: "12143236"
+pay2go_hash_key: "ozYlHVYvYP4ofE8Oj5BqP7j1wBsd9oKx"
+pay2go_hash_iv: "YITGERbDGg1VV9Jf"
+pay2go_service_url: "https://capi.pay2go.com/MPG/mpg_gateway"
+
+production:
+  pay2go_merchant_id: "xxx"
+  pay2go_hash_key: "xxx"
+  pay2go_hash_iv: "xxx"
+  pay2go_service_url: "xxx"
